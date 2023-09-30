@@ -1,13 +1,11 @@
-import { Navbar, NavbarBrand } from 'reactstrap';
+import { Navbar , NavbarBrand } from 'reactstrap';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand className="me" href="/">E-Commerce</NavbarBrand>
-        </div>
+          <NavbarBrand href="/">E-Commerce</NavbarBrand>
       </Navbar>
     </div>
   );
