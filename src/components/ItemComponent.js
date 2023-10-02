@@ -15,20 +15,10 @@ class ItemList extends React.Component {
       return (
         <div key={item.id} className="col-4 col-md-3 mt-2">
           <Card>
-            <img
-              alt={item.name}
-              src={item.image}
-            />
-            <CardBody>
-              <CardTitle tag="h5">
-                {item.name}
-              </CardTitle>
-              <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-              >
-              ${item.price}
-              </CardSubtitle>
+            <img alt={item.name} src={item.image}/>
+            <CardBody style={{"text-align":"left"}}>
+              <CardTitle><strong className='h5 text-nowrap' >{item.name}</strong></CardTitle>
+              <CardSubtitle className="mb-2 text-muted" tag="h5" ><b>${item.price}</b></CardSubtitle>
             </CardBody>
           </Card>
         </div>
