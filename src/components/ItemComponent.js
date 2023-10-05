@@ -16,37 +16,15 @@ class ItemList extends React.Component {
     this.setState({selectedItem: item});
   }
 
-  renderItem(item) {
-    if (item != null){
-      return(
-        <div>
-          <Card>
-            <img alt={item.name} src={item.image}/>
-            <CardBody style={{"text-align":"left"}}>
-                <CardTitle><strong className='h5 text-nowrap' >{item.name}</strong></CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h5" ><b>${item.price}</b></CardSubtitle>
-                <CardText>{item.description}</CardText>
-              </CardBody>
-          </Card>
-          {/* <ItemDetail item = {item}/> */}
-        </div>
-      );
-    }else{
-      return(
-        <div></div>
-      );
-    }
-  }
-
   render(){
 
     const itemslist = this.props.items.map((item)=>{
       return (
-        <div key={item.id} className="col-4 col-md-3 mt-2">
-          <Card onClick={() => this.onItemSelect(item)}>
+        <div key={item.id} className="col-6 col-md-3 mt-2" >
+          <Card onClick={() => this.onItemSelect(item)} style={{"text-align":"left"}}>
             <img alt={item.name} src={item.image}/>
-            <CardBody style={{"text-align":"left"}}>
-              <CardTitle><strong className='h5 text-nowrap' >{item.name}</strong></CardTitle>
+            <CardBody>
+              <CardTitle style={{"overflow":"hidden", "text-overflow":"ellipsis", "white-space":"nowrap"}}><strong className='h5'>{item.name}</strong></CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h5" ><b>${item.price}</b></CardSubtitle>
             </CardBody>
           </Card>
@@ -59,9 +37,7 @@ class ItemList extends React.Component {
         <div className="row">
           {itemslist}
         </div>
-        <div className="row">
-          {this.renderItem(this.state.selectedItem)}
-        </div>
+        <ItemDetail item = {this.state.selectedItem}/>
       </div>
     );
   }
